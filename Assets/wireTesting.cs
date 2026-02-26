@@ -67,7 +67,7 @@ public class wireTesting : MonoBehaviour {
 
     }
 
-    void Start () { //Shit
+    void Start() { //Shit
         Log("Stage 1:");
         for(int i=0; i<5; i++) {
             wire = Instantiate(wireObjects[Rnd.Range(0, wireObjects.Length)]);
@@ -84,7 +84,7 @@ public class wireTesting : MonoBehaviour {
         CONFIRM.OnInteract = delegate () { SolCheck(true); return false; };
     }
 
-    void Update () { //Shit that happens at any point after initialization
+    void Update() { //Shit that happens at any point after initialization
         
     }
 
@@ -144,10 +144,8 @@ public class wireTesting : MonoBehaviour {
                     break;
                 case "Four":
                     if(char.IsNumber(Bomb.GetSerialNumber()[1])) {
-                        foreach(char i in "GHIJKLMNOPQRSTUVWXYZ") {
-                            if(Bomb.GetSerialNumber().Contains(i)) {
-                                Wire.Valid = true;
-                            }
+                        if ("GHIJKLMNOPQRSTUVWXYZ".Contains(Bomb.GetSerialNumber()[3])) {
+                            Wire.Valid = true;
                         }
                     } else {
                         if(!Bomb.GetSerialNumber().Contains('4')) {
